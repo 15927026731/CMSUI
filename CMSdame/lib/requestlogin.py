@@ -53,6 +53,6 @@ class REQUEST:
         find = requests.get(url=url, params=parame, headers=headers)
         return find
 
-# REQUEST = REQUEST
+REQUEST = REQUEST
 if __name__ == "__main__":
     print(REQUEST().login().cookies)

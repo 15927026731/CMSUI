@@ -2,8 +2,6 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.service import Service
-from cfg import *
-import requests
 
 
 class WebUI:
@@ -21,7 +19,6 @@ class WebUI:
                                  """/html/body/table[1]/tbody/tr/td/table/tbody/tr/td[1]/form/input[4]""").send_keys(
                 str(password))
         self.wd.find_element(By.XPATH, """/html/body/table[1]/tbody/tr/td/table/tbody/tr/td[1]/form/input[5]""").click()
-        # return str((self.wd.find_element(By.XPATH,"""/html/body/table/tbody/tr[2]/td/div/b""")).text)
 
     def register(self, ):
         self.wd.find_element(By.XPATH, "/html/body/table[1]/tbody/tr/td/table/tbody/tr/td[1]/form/input[6]").click()

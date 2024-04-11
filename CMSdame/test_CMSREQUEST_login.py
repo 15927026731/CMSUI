@@ -1,6 +1,6 @@
 import requests
 import pytest
-from lib.requestlogin import *
+from requestlogin import *
 
 
 class Test_001:
