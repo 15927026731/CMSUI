@@ -1,5 +1,5 @@
 import requests
-from .cfg import *
+from cfg import *
 
 name = name_data
 password = password_data
@@ -53,9 +53,6 @@ class REQUEST:
         find = requests.get(url=url, params=parame, headers=headers)
         return find
 
-REQUEST = REQUEST
+# REQUEST = REQUEST
 if __name__ == "__main__":
     print(REQUEST().login().cookies)
-# print(REQUEST().logincookie())
-# print((REQUEST().add()).text)
-# print(REQUEST().find().text)
