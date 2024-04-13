@@ -1,5 +1,6 @@
 import time
-
+import sys
+sys.path.append('C:/Users/24202/PycharmProjects/CMSUI/CMSdame/lib')
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -153,8 +154,6 @@ class Test_001:
         test = webUI.wd.find_element(By.XPATH,"/html/body/table/tbody/tr[2]/td/div/b").text
         assert "注册成功" == test
 
-
-
     def test_002_001(self):  # 鼠标停留
         webUI.wd()
         webUI.wd.find_element(By.XPATH, "/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr[2]/td/a[2]")
@@ -240,3 +239,4 @@ class Test_001:
         wd.switch_to.alert.accept()
         tips = str(wd.find_element(By.XPATH, "/html/body/div/li").text)
         assert tips in "你想学习:测试内容"
+
