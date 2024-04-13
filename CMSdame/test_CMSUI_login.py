@@ -1,12 +1,21 @@
 import time
-import sys
-sys.path.append('C:/Users/24202/PycharmProjects/CMSUI/CMSdame/lib')
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.service import Service
 from .lib.weblogin import webUI
 from selenium.webdriver.common.action_chains import ActionChains
+import sys
+sys.path.append('C:/Users/24202/PycharmProjects/CMSUI/CMSdame')
+sys.path.append('C:\\Users\\24202\\PycharmProjects\\CMSUI\\CMSdame\\lib')
+sys.path.append('C:\\Users\\24202\\PycharmProjects\\CMSUI')
+sys.path.append('C:\\Program Files\\Python311\\python311.zip')
+sys.path.append('C:\\Program Files\\Python311\\Lib')
+sys.path.append('C:\\Program Files\\Python311\\DLLs')
+sys.path.append('C:\\Users\\24202\\AppData\\Roaming\\Python\\Python311\\site-packages')
+sys.path.append('C:\\Program Files\\Python311')
+sys.path.append('C:\\Program Files\\Python311\\Lib\\site-packages')
+sys.path.append('D:\\')
 # from .lib.cfg import *
 
 # wd = webdriver.Edge(service=Service(r"d:\msedgedriver.exe"))
@@ -149,13 +158,13 @@ class Test_001:
         webUI.registerdata(name,password,repassword,email)
         assert "用户名，密码与邮箱不能为空" == webUI.wd.find_element(By.XPATH,"/html/body/table/tbody/tr[2]/td/div/b").text
 
-    def test_006(self,singout):  # 注册用户
+    def test_006(self):  # 注册用户
         webUI.registerdata("wdh2","ZJqr@2022","ZJqr@2022","wdh@qq.com")
         test = webUI.wd.find_element(By.XPATH,"/html/body/table/tbody/tr[2]/td/div/b").text
         assert "注册成功" == test
 
     def test_002_001(self):  # 鼠标停留
-        webUI.wd()
+        webUI.wd.get("http://127.0.0.1:8080")
         webUI.wd.find_element(By.XPATH, "/html/body/table[4]/tbody/tr/td[2]/table[2]/tbody/tr[2]/td/a[2]")
         ac = ActionChains(webUI.wd)  # 鼠标移动
         ac.move_to_element(
@@ -219,7 +228,7 @@ class Test_001:
         wd = webdriver.Edge(service=Service(r"d:\msedgedriver.exe"))
         wd.get("https://cdn2.byhy.net/files/selenium/test4.html")
         wd.find_element(By.XPATH, """//*[@id="b2"]""").click()
-        wd.switch_to.alert.accept()
+        wd.switch_to.alert.accept()#弹窗确认
         tips = str(wd.find_element(By.XPATH, "/html/body/div/li").text)
         assert tips == "确定"
 
@@ -227,16 +236,17 @@ class Test_001:
         wd = webdriver.Edge(service=Service(r"d:\msedgedriver.exe"))
         wd.get("https://cdn2.byhy.net/files/selenium/test4.html")
         wd.find_element(By.XPATH, """//*[@id="b2"]""").click()
-        wd.switch_to.alert.dismiss()
+        wd.switch_to.alert.dismiss()#弹窗取消
         tips = str(wd.find_element(By.XPATH, "/html/body/div/li").text)
         assert tips == "取消操作"
 
     def test_018(self):  # 弹窗输入
         wd = webdriver.Edge(service=Service(r"d:\msedgedriver.exe"))
         wd.get("https://cdn2.byhy.net/files/selenium/test4.html")
-        wd.find_element(By.XPATH, """"//*[@id="b3"]""").click()
-        wd.switch_to.alert.send_keys("测试内容")
-        wd.switch_to.alert.accept()
+        time.sleep(2)
+        wd.find_element(By.XPATH,"""//*[@id="b3"]""").click()
+        wd.switch_to.alert.send_keys("测试内容")#弹窗输入
+        wd.switch_to.alert.accept()#弹窗确认
         tips = str(wd.find_element(By.XPATH, "/html/body/div/li").text)
         assert tips in "你想学习:测试内容"
 
