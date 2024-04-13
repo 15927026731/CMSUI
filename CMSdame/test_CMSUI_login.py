@@ -5,7 +5,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.service import Service
-from weblogin import webUI
+from .lib.weblogin import webUI
 from selenium.webdriver.common.action_chains import ActionChains
 # from .lib.cfg import *
 
